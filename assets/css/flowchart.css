@@ -1,0 +1,551 @@
+:root {
+    --bg-dark: #0a0c0e;
+    --accent: #ff7a1a;
+    --node-bg: rgba(20, 24, 28, 0.95);
+    --node-border: rgba(255, 122, 26, 0.3);
+    --text: #ffffff;
+    --text-muted: #8b9bb4;
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Inter', sans-serif;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text);
+    font-family: var(--font-body);
+    margin: 0;
+    overflow-x: hidden;
+}
+
+/* Background Effects */
+.flowchart-main {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background: radial-gradient(circle at center, #1a1e24 0%, #0a0c0e 70%);
+}
+
+.bg-hex-accents {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.bg-hex {
+    position: absolute;
+    background: var(--accent);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    aspect-ratio: 1 / 1.15;
+    filter: blur(2px);
+    animation: rotateSlow 20s linear infinite;
+}
+
+@keyframes rotateSlow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.flowchart-canvas {
+    position: absolute;
+    top: 68px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 68px);
+    z-index: 5;
+}
+
+.connections-svg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    pointer-events: none;
+}
+
+.flow-line {
+    fill: none;
+    stroke: var(--accent);
+    stroke-width: 3.5px;
+    /* Thicker */
+    opacity: 0.7;
+    stroke-linecap: round;
+    transition: all 0.3s ease;
+    filter: drop-shadow(0 0 2px rgba(255, 122, 26, 0.2));
+}
+
+.flow-line.active {
+    stroke-width: 5px;
+    opacity: 1;
+    filter: drop-shadow(0 0 15px var(--accent));
+    stroke-dasharray: 10, 20;
+    animation: flowPulse 1.5s linear infinite;
+}
+
+@keyframes flowPulse {
+    from {
+        stroke-dashoffset: 60;
+    }
+
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* Standard Node Styles */
+.node {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Randomized floating delays */
+.node:nth-child(odd) {
+    --delay: 0.5;
+}
+
+.node:nth-child(3n) {
+    --delay: 1.2;
+}
+
+.node:nth-child(4n) {
+    --delay: 2.1;
+}
+
+.node:nth-child(5n) {
+    --delay: 0.8;
+}
+
+/* HUB - Central */
+.node-hub {
+    top: 45%;
+    left: 50%;
+    width: 180px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 50;
+}
+
+.hub-pulse-ring {
+    position: absolute;
+    width: 220px;
+    height: 220px;
+    border: 2px solid var(--accent);
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    opacity: 0;
+    animation: hubPulse 3s cubic-bezier(0.16, 1, 0.3, 1) infinite;
+}
+
+@keyframes hubPulse {
+    0% {
+        transform: scale(0.8);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+.hub-inner {
+    position: relative;
+    text-align: center;
+    z-index: 10;
+}
+
+.hex-shape svg {
+    width: 80px;
+    height: 80px;
+}
+
+.brand-hex {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--accent);
+    letter-spacing: -1px;
+}
+
+.brand-name {
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: var(--text-muted);
+}
+
+.hub-tagline {
+    display: block;
+    margin-top: 0.5rem;
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* CATEGORIES - Hexagonal Glassmorphism */
+.node-category {
+    width: 170px;
+    height: 150px;
+    background: rgba(255, 122, 26, 0.1);
+    border: 1px solid var(--node-border);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    text-align: center;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    box-shadow: 0 0 20px rgba(255, 122, 26, 0.1);
+    animation: floating 4s ease-in-out infinite;
+}
+
+@keyframes floating {
+
+    0%,
+    100% {
+        transform: translate(-50%, -50%);
+    }
+
+    50% {
+        transform: translate(-50%, -55%);
+    }
+}
+
+.node-category::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+.cat-icon svg {
+    width: 32px;
+    height: 32px;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.cat-text h2 {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #fff;
+}
+
+.cat-text p {
+    font-size: 0.7rem;
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.cat-indicator {
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--node-bg);
+    border: 1px solid var(--accent);
+    padding: 2px 8px;
+    font-size: 0.6rem;
+    border-radius: 10px;
+    color: var(--accent);
+}
+
+/* Category Positions (Tight Radial - Closer to Center) */
+.cat-heavy {
+    top: 28%;
+    left: 35%;
+}
+
+.cat-survey {
+    top: 28%;
+    left: 65%;
+}
+
+.cat-light {
+    top: 68%;
+    left: 50%;
+}
+
+/* PRODUCTS - Hexagonal Glassmorphism */
+.node-product {
+    width: 155px;
+    height: 155px;
+    background: rgba(20, 24, 28, 0.85);
+    border: 1px solid rgba(255, 122, 26, 0.2);
+    backdrop-filter: blur(12px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    cursor: pointer;
+    animation: floating 5s ease-in-out infinite;
+    animation-delay: calc(var(--delay, 0) * 1s);
+    z-index: 20;
+}
+
+.node-product:hover {
+    border-color: var(--accent);
+    transform: translate(-50%, -50%) scale(1.1);
+    background: rgba(255, 122, 26, 0.15);
+    box-shadow: 0 0 30px rgba(255, 122, 26, 0.3);
+    z-index: 60;
+}
+
+.product-media {
+    width: 45px;
+    height: 45px;
+    overflow: hidden;
+    margin-bottom: 5px;
+    clip-path: polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%);
+    border: 1px solid rgba(255, 122, 26, 0.3);
+}
+
+.product-media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 0 0.5rem;
+    text-align: center;
+}
+
+.product-name {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.product-tag {
+    display: block;
+    font-size: 0.55rem;
+    color: var(--text-muted);
+    margin-top: 2px;
+}
+
+/* Product Positions (Tight Flare - Reducing Scatter) */
+
+/* HEAVY Branch (Better vertical spacing) */
+#node-excavator {
+    left: 20%;
+    top: 10%;
+}
+
+#node-crane {
+    left: 18%;
+    top: 28%;
+}
+
+#node-bulldozer {
+    left: 20%;
+    top: 46%;
+}
+
+/* SURVEY Branch (Better spacing) */
+#node-drone {
+    left: 80%;
+    top: 10%;
+}
+
+#node-rover {
+    left: 82%;
+    top: 28%;
+}
+
+#node-ai {
+    left: 80%;
+    top: 46%;
+}
+
+/* LIGHT Branch (Better Spacing to prevent overlap) */
+#node-base {
+    left: 50%;
+    top: 85%;
+    width: 150px;
+    border-color: var(--accent);
+}
+
+#node-drilling {
+    left: 38%;
+    top: 86%;
+    width: 100px;
+}
+
+#node-painting {
+    left: 62%;
+    top: 86%;
+    width: 100px;
+}
+
+#node-demolition {
+    left: 25%;
+    top: 78%;
+    width: 100px;
+}
+
+#node-welding {
+    left: 75%;
+    top: 78%;
+    width: 100px;
+}
+
+/* Flared Up/Out */
+
+/* Detail Panel (Standard) */
+.detail-panel {
+    position: fixed;
+    top: 68px;
+    right: -450px;
+    width: 400px;
+    height: calc(100vh - 68px);
+    background: #0f1114;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 100;
+    transition: right 0.4s ease;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.detail-panel.open {
+    right: 0;
+    box-shadow: -10px 0 50px rgba(0, 0, 0, 0.8);
+}
+
+.panel-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* Mobile Responsive (Stack) */
+@media (max-width: 768px) {
+    .flowchart-main {
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .flowchart-canvas {
+        position: relative;
+        height: auto;
+        padding: 20px 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .connections-svg {
+        display: none;
+    }
+
+    /* Hide lines on mobile */
+
+    .node {
+        position: relative;
+        transform: none;
+        top: auto !important;
+        left: auto !important;
+        margin-bottom: 20px;
+    }
+
+    /* Order */
+    .node-hub {
+        order: 1;
+        margin-bottom: 40px;
+    }
+
+    .cat-heavy {
+        order: 2;
+        width: 90%;
+    }
+
+    #node-excavator {
+        order: 3;
+        width: 90%;
+    }
+
+    #node-crane {
+        order: 4;
+        width: 90%;
+    }
+
+    #node-bulldozer {
+        order: 5;
+        width: 90%;
+    }
+
+    .cat-light {
+        order: 6;
+        width: 90%;
+        margin-top: 30px;
+    }
+
+    #node-base {
+        order: 7;
+        width: 90%;
+    }
+
+    #node-drilling {
+        order: 8;
+        width: 45%;
+        display: inline-block;
+        margin-right: 5%;
+    }
+
+    #node-painting {
+        order: 9;
+        width: 45%;
+        display: inline-block;
+    }
+
+    /* Arms in grid */
+
+    .cat-survey {
+        order: 12;
+        width: 90%;
+        margin-top: 30px;
+    }
+
+    #node-drone {
+        order: 13;
+        width: 90%;
+    }
+
+    #node-rover {
+        order: 14;
+        width: 90%;
+    }
+
+    #node-ai {
+        order: 15;
+        width: 90%;
+    }
+
+    .detail-panel {
+        width: 100%;
+        right: -100%;
+    }
+}

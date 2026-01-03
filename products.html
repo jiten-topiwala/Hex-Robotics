@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Hex Robotics Product Ecosystem — Interactive mind map of our construction robotics platform." />
+  <title>Flow | Hex Robotics</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+    rel="stylesheet" />
+
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <link rel="stylesheet" href="assets/css/flowchart.css" />
+</head>
+
+<body>
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <span class="logo-mark">HEX</span>
+        <span class="logo-text">Robotics</span>
+      </a>
+      <nav class="main-nav">
+        <button class="nav-toggle" aria-label="Toggle navigation"><span></span><span></span></button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html" class="active">Flow</a></li>
+          <li><a href="index.html#robots">Robots</a></li>
+          <li><a href="index.html#solutions">Solutions</a></li>
+          <li><a href="index.html#team">Team</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="flowchart-main">
+    <!-- SVG Connections Layer (Moved outside to stabilize zoom) -->
+    <svg class="connections-svg" id="connections-svg">
+      <defs>
+        <!-- Animated gradient -->
+        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#ff7a1a" stop-opacity="0.2" />
+          <stop offset="50%" stop-color="#ff7a1a" stop-opacity="1" />
+          <stop offset="100%" stop-color="#ff7a1a" stop-opacity="0.2" />
+        </linearGradient>
+        <!-- Glow filter -->
+        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge>
+            <feMergeNode in="blur" />
+            <feMergeNode in="SourceGraphic" />
+          </feMerge>
+        </filter>
+        <!-- Dot pattern -->
+        <pattern id="dotPattern" x="0" y="0" width="4" height="4" patternUnits="userSpaceOnUse">
+          <circle cx="2" cy="2" r="1" fill="#ff7a1a" opacity="0.3" />
+        </pattern>
+      </defs>
+    </svg>
+    <div class="flowchart-canvas" id="flowchart-canvas">
+
+      <!-- Background Effects -->
+      <div class="bg-grid"></div>
+      <div class="bg-glow"></div>
+      <div class="bg-hex-accents">
+        <div class="bg-hex" style="top: 10%; left: 15%; width: 100px; opacity: 0.05;"></div>
+        <div class="bg-hex" style="top: 70%; left: 80%; width: 150px; opacity: 0.03;"></div>
+        <div class="bg-hex" style="top: 40%; left: 10%; width: 80px; opacity: 0.04;"></div>
+        <div class="bg-hex" style="top: 20%; left: 85%; width: 120px; opacity: 0.02;"></div>
+      </div>
+
+      <!-- ========== CENTER HUB ========== -->
+      <div class="node node-hub" id="node-hub">
+        <div class="hub-pulse-ring"></div>
+        <div class="hub-outer-ring"></div>
+        <div class="hub-inner-glow"></div>
+        <div class="hub-inner">
+          <div class="hex-shape">
+            <svg viewBox="0 0 100 100">
+              <polygon points="50,5 95,27.5 95,72.5 50,95 5,72.5 5,27.5" fill="none" stroke="currentColor"
+                stroke-width="2" />
+              <polygon points="50,15 85,32.5 85,67.5 50,85 15,67.5 15,32.5" fill="rgba(255,122,26,0.1)"
+                stroke="currentColor" stroke-width="1" opacity="0.5" />
+            </svg>
+          </div>
+          <div class="hub-brand">
+            <span class="brand-hex">HEX</span>
+            <span class="brand-name">ROBOTICS</span>
+          </div>
+          <span class="hub-tagline">Construction Automation</span>
+        </div>
+        <div class="hub-pulse"></div>
+        <div class="hub-pulse delay-1"></div>
+        <div class="hub-pulse delay-2"></div>
+      </div>
+
+      <!-- ========== CATEGORY: HEAVY DUTY ========== -->
+      <div class="node node-category cat-heavy" id="node-heavy" data-category="heavy">
+        <div class="cat-glow"></div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <rect x="3" y="14" width="18" height="7" rx="1" />
+            <path d="M5 14V8a2 2 0 012-2h3l2 2h5a2 2 0 012 2v4" />
+            <circle cx="7" cy="21" r="2" />
+            <circle cx="17" cy="21" r="2" />
+          </svg>
+        </div>
+        <div class="cat-text">
+          <h2>Heavy Duty</h2>
+          <p>Retrofit & Automate</p>
+        </div>
+        <div class="cat-indicator">3 Products</div>
+      </div>
+
+      <!-- ========== CATEGORY: LIGHT WEIGHT ========== -->
+      <div class="node node-category cat-light" id="node-light" data-category="light">
+        <div class="cat-glow"></div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <circle cx="12" cy="12" r="3" />
+            <path
+              d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83" />
+          </svg>
+        </div>
+        <div class="cat-text">
+          <h2>Light Weight</h2>
+          <p>Modular Platform</p>
+        </div>
+        <div class="cat-indicator">5 Modules</div>
+      </div>
+
+      <!-- ========== CATEGORY: SURVEY ========== -->
+      <div class="node node-category cat-survey" id="node-survey" data-category="survey">
+        <div class="cat-glow"></div>
+        <div class="cat-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" />
+            <path d="M2 17l10 5 10-5M2 12l10 5 10-5" />
+          </svg>
+        </div>
+        <div class="cat-text">
+          <h2>Survey & Mapping</h2>
+          <p>Site Intelligence</p>
+        </div>
+        <div class="cat-indicator">3 Systems</div>
+      </div>
+
+      <!-- ========== PRODUCTS: HEAVY DUTY ========== -->
+      <div class="node node-product" id="node-excavator" data-product="excavator">
+        <div class="product-media" data-type="hybrid">
+          <img src="assets/images/tech_placeholder.png" alt="Excavator" class="media-poster">
+          <video src="assets/videos/try.mp4" muted loop playsinline class="media-video"></video>
+        </div>
+        <div class="product-info">
+          <span class="product-name">Excavator</span>
+          <span class="product-tag">20-60T</span>
+        </div>
+      </div>
+
+      <div class="node node-product" id="node-crane" data-product="crane">
+        <div class="product-media" data-type="image">
+          <img src="assets/images/tech_placeholder.png" alt="Crane">
+        </div>
+        <div class="product-info">
+          <span class="product-name">Crane</span>
+          <span class="product-tag">Smart Lift</span>
+        </div>
+      </div>
+
+      <div class="node node-product" id="node-bulldozer" data-product="bulldozer">
+        <div class="product-media" data-type="image">
+          <img src="assets/images/tech_placeholder.png" alt="Bulldozer">
+        </div>
+        <div class="product-info">
+          <span class="product-name">Bulldozer</span>
+          <span class="product-tag">Grade AI</span>
+        </div>
+      </div>
+
+      <!-- ========== PRODUCTS: LIGHT WEIGHT ========== -->
+      <div class="node node-product node-base" id="node-base" data-product="base">
+        <div class="product-media" data-type="hybrid">
+          <img src="assets/images/tech_placeholder.png" alt="Base Platform" class="media-poster">
+          <video src="assets/videos/try.mp4" muted loop playsinline class="media-video"></video>
+        </div>
+        <div class="product-info">
+          <span class="product-name">Base Platform</span>
+          <span class="product-tag">Modular Core</span>
+        </div>
+        <div class="base-connector"></div>
+      </div>
+
+      <!-- Arms -->
+      <div class="node node-product node-arm" id="node-drilling" data-product="drilling">
+        <div class="product-media" data-type="image">
+          <img src="assets/images/tech_placeholder.png" alt="Drilling">
+        </div>
+        <div class="product-info">
+          <span class="product-name">Drilling</span>
+        </div>
+      </div>
+
+      <div class="node node-product node-arm" id="node-demolition" data-product="demolition">
+        <div class="product-media" data-type="image">
+          <img src="assets/images/tech_placeholder.png" alt="Demolition">
+        </div>
+        <div class="product-info">
+          <span class="product-name">Demolition</span>
+        </div>
+      </div>
+
+      <div class="node node-product node-arm" id="node-painting" data-product="painting">
+        <div class="product-media" data-type="image">
+          <img src="assets/images/tech_placeholder.png" alt="Painting">
+        </div>
+        <div class="product-info">
+          <span class="product-name">Painting</span>
+        </div>
+      </div>
+
+      <div class="node node-product node-arm" id="node-welding" data-product="welding">
+        <div class="product-media" data-type="image">
+          <img src="assets/images/tech_placeholder.png" alt="Welding">
+        </div>
+        <div class="product-info">
+          <span class="product-name">Welding</span>
+        </div>
+      </div>
+
+      <!-- ========== PRODUCTS: SURVEY ========== -->
+      <div class="node node-product" id="node-drone" data-product="drone">
+        <div class="product-media" data-type="hybrid">
+          <img src="assets/images/tech_placeholder.png" alt="Drone" class="media-poster">
+          <video src="assets/videos/try.mp4" muted loop playsinline class="media-video"></video>
+        </div>
+        <div class="product-info">
+          <span class="product-name">Drones</span>
+          <span class="product-tag">Aerial</span>
+        </div>
+      </div>
+
+      <div class="node node-product" id="node-rover" data-product="rover">
+        <div class="product-media" data-type="image">
+          <img src="assets/images/tech_placeholder.png" alt="Rover">
+        </div>
+        <div class="product-info">
+          <span class="product-name">Rovers</span>
+          <span class="product-tag">Ground</span>
+        </div>
+      </div>
+
+      <div class="node node-product" id="node-ai" data-product="ai">
+        <div class="product-media" data-type="image">
+          <img src="assets/images/tech_placeholder.png" alt="AI Platform">
+        </div>
+        <div class="product-info">
+          <span class="product-name">AI Platform</span>
+          <span class="product-tag">Analytics</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Detail Panel -->
+    <aside class="detail-panel" id="detail-panel">
+      <button class="panel-close" id="panel-close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M18 6L6 18M6 6l12 12" />
+        </svg>
+      </button>
+
+      <div class="panel-header">
+        <span class="panel-category" id="panel-category">Heavy Duty</span>
+        <h2 class="panel-title" id="panel-title">Excavator Automation</h2>
+        <p class="panel-desc" id="panel-desc">Transform your excavator into an intelligent machine.</p>
+      </div>
+
+      <div class="panel-body">
+        <section class="panel-section">
+          <h3>✓ Key Features</h3>
+          <ul class="features-list" id="panel-features">
+            <li>Works with any brand</li>
+          </ul>
+        </section>
+
+        <section class="panel-section">
+          <h3>⚙️ Technology</h3>
+          <div class="tech-chips" id="panel-tech">
+            <span class="chip">GPS-RTK</span>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h3>📊 Specifications</h3>
+          <div class="specs-grid" id="panel-specs">
+            <div class="spec-item">
+              <span class="spec-value">100ms</span>
+              <span class="spec-label">Latency</span>
+            </div>
+          </div>
+        </section>
+
+        <section class="panel-section">
+          <h3>🎬 Demo</h3>
+          <div class="video-box">
+            <video src="assets/videos/try.mp4" controls poster="assets/images/tech_placeholder.png"></video>
+          </div>
+        </section>
+
+        <a href="index.html#contact" class="cta-button">Request Demo →</a>
+      </div>
+    </aside>
+
+    <div class="panel-backdrop" id="panel-backdrop"></div>
+
+    <!-- Controls -->
+    <div class="flow-controls">
+      <button class="control-btn" id="zoom-in" title="Zoom In">+</button>
+      <button class="control-btn" id="zoom-out" title="Zoom Out">−</button>
+      <button class="control-btn" id="zoom-fit" title="Reset">⊡</button>
+    </div>
+
+    <!-- Hint -->
+    <div class="flow-hint" id="flow-hint">
+      <span>Hover for preview • Click for details</span>
+      <button class="hint-dismiss" id="hint-dismiss">×</button>
+    </div>
+
+  </main>
+
+  <script src="assets/js/flowchart.js"></script>
+</body>
+
+</html>
