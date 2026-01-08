@@ -38,10 +38,8 @@
         </button>
         <ul class="nav-links">
           <li><a href="#hero">Home</a></li>
-          <li><a href="products.html">Flow</a></li>
-          <li><a href="#robots">Robots</a></li>
-          <li><a href="#solutions">Solutions</a></li>
-
+          <li><a href="#products">products</a></li>
+          <li><a href="#roi">ROI Calculator</a></li>
           <li><a href="#team">Team</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -70,7 +68,7 @@
               Modular robotics platform for construction automation. Deploy today, scale tomorrow.
             </p>
             <div class="hero-actions">
-              <a href="#robots" class="btn btn-primary">Explore platforms</a>
+              <a href="#products" class="btn btn-primary">Explore platforms</a>
               <a href="#contact" class="btn btn-ghost">Request demo</a>
             </div>
 
@@ -99,37 +97,105 @@
       </div>
     </section>
 
-    <!-- ================= Scrolling Video Section ================= -->
 
 
     <!-- ================= About Section ================= -->
-
-
-    <!-- ================= Robots / Products Section ================= -->
-
-
-    <!-- ================= Solutions Section ================= -->
-    <section id="solutions" class="section solutions">
+    <section id="about" class="section about">
       <div class="container">
         <header class="section-header reveal">
-          <p class="eyebrow">Solutions</p>
+          <p class="eyebrow">Who We Are</p>
+          <h2>Pioneering the first integrated automation platform.</h2>
+          <div class="about-intro">
+            <p>
+              Construction faces a <strong>$2.1 trillion productivity crisis</strong>. Hex Robotics directly addresses
+              this with a unified, scalable ecosystem—unlike the fragmented tools of the past.
+            </p>
+          </div>
+        </header>
+
+        <div class="about-pillars reveal">
+          <!-- Pillar 1 -->
+          <div class="pillar-card">
+            <div class="pillar-icon">🚀</div>
+            <span class="pillar-phase">Phase 1: Market Entry</span>
+            <h3>Smart Surface products</h3>
+            <p class="pillar-desc">Lightweight, agile robots for finishing trades like painting and drilling.</p>
+            <div class="pillar-metrics">
+              <div class="metric">
+                <span class="metric-val">8 Mo</span>
+                <span class="metric-label">Rapid ROI</span>
+              </div>
+              <div class="metric">
+                <span class="metric-val">$1.6M</span>
+                <span class="metric-label">Low CapEx</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="pillar-card highlight-card">
+            <div class="pillar-icon">🏗️</div>
+            <span class="pillar-phase">Phase 2: Scale</span>
+            <h3>Heavy-Duty Automation</h3>
+            <p class="pillar-desc">Autonomous machinery for critical tasks like earth moving and concrete lines.</p>
+            <div class="pillar-metrics">
+              <div class="metric">
+                <span class="metric-val">$10B+</span>
+                <span class="metric-label">TAM Access</span>
+              </div>
+              <div class="metric">
+                <span class="metric-val">Deep</span>
+                <span class="metric-label">Tech Moats</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="pillar-card">
+            <div class="pillar-icon">🧠</div>
+            <span class="pillar-phase">Phase 3: Domination</span>
+            <h3>Digital Intelligence</h3>
+            <p class="pillar-desc">The AI brain connecting hardware. Every robot becomes a data node for predictive
+              insights.</p>
+            <div class="pillar-metrics">
+              <div class="metric">
+                <span class="metric-val">85%</span>
+                <span class="metric-label">Gross Margins</span>
+              </div>
+              <div class="metric">
+                <span class="metric-val">Recurring</span>
+                <span class="metric-label">SaaS Revenue</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+
+
+    <!-- ================= products Section ================= -->
+    <section id="products" class="section products">
+      <div class="container">
+        <header class="section-header reveal">
+          <p class="eyebrow">products</p>
           <h2>Tailored for every scale.</h2>
           <p class="section-subtitle">
             From precision surveying to heavy-duty retrofits, we have the right tool for the job.
           </p>
         </header>
 
-        <div class="solutions-container reveal">
+        <div class="products-container reveal">
 
           <!-- Column 1: Light Weight -->
-          <div class="solution-category">
+          <div class="product-category">
             <h3 class="category-title">Light Weight</h3>
-            <div class="solution-items">
+            <div class="product-items">
               <!-- Item 1 -->
-              <article class="solution-card">
-                <video src="assets/videos/Demolition.mp4" autoplay muted loop playsinline
-                  class="solution-video"></video>
-                <div class="solution-overlay">
+              <article class="product-card">
+                <video src="assets/videos/Demolition.mp4" autoplay muted loop playsinline class="product-video"></video>
+                <div class="product-overlay">
                   <h4>Demolition</h4>
                   <p>Strong demolition attachment.</p>
                   <!-- <p>Compact inspection unit for tight spaces.</p> -->
@@ -137,17 +203,17 @@
                 </div>
               </article>
               <!-- Item 2 -->
-              <article class="solution-card">
-                <video src="assets/videos/Painting.mp4" autoplay muted loop playsinline class="solution-video"></video>
-                <div class="solution-overlay">
+              <article class="product-card">
+                <video src="assets/videos/Painting.mp4" autoplay muted loop playsinline class="product-video"></video>
+                <div class="product-overlay">
                   <h4>Painting</h4>
                   <p>Automated wall painting attachment.</p>
                 </div>
               </article>
               <!-- Item 3 -->
-              <article class="solution-card">
-                <video src="assets/videos/Drilling.mp4" autoplay muted loop playsinline class="solution-video"></video>
-                <div class="solution-overlay">
+              <article class="product-card">
+                <video src="assets/videos/Drilling.mp4" autoplay muted loop playsinline class="product-video"></video>
+                <div class="product-overlay">
                   <h4>Drilling</h4>
                   <p>Precision drilling attachment.</p>
                 </div>
@@ -158,30 +224,30 @@
 
 
           <!-- Column 2: Heavy -->
-          <div class="solution-category">
+          <div class="product-category">
             <h3 class="category-title">Heavy</h3>
-            <div class="solution-items">
+            <div class="product-items">
               <!-- Item 1 -->
-              <article class="solution-card">
-                <video src="assets/videos/Excavator.mp4" autoplay muted loop playsinline class="solution-video"></video>
-                <div class="solution-overlay">
+              <article class="product-card">
+                <video src="assets/videos/Excavator.mp4" autoplay muted loop playsinline class="product-video"></video>
+                <div class="product-overlay">
                   <h4>Excavator-Kit</h4>
                   <p>Retrofit kit for 20T excavators.</p>
                 </div>
               </article>
               <!-- Item 2 -->
-              <article class="solution-card">
+              <article class="product-card">
                 <video src="assets/videos/Excavator_rear.mp4" autoplay muted loop playsinline
-                  class="solution-video"></video>
-                <div class="solution-overlay">
+                  class="product-video"></video>
+                <div class="product-overlay">
                   <h4>Haul-Master</h4>
                   <p>Autonomous dump truck system.</p>
                 </div>
               </article>
               <!-- Item 3 -->
-              <!-- <article class="solution-card">
-                <video src="assets/videos/Excavator.mp4" autoplay muted loop playsinline class="solution-video"></video>
-                <div class="solution-overlay">
+              <!-- <article class="product-card">
+                <video src="assets/videos/Excavator.mp4" autoplay muted loop playsinline class="product-video"></video>
+                <div class="product-overlay">
                   <h4>Dozer-Link</h4>
                   <p>Remote teleoperation for dozers.</p>
                 </div>
@@ -190,32 +256,32 @@
           </div>
 
           <!-- Column 3: Survey -->
-          <div class="solution-category">
+          <div class="product-category">
             <h3 class="category-title">Survey</h3>
-            <div class="solution-items">
+            <div class="product-items">
               <!-- Item 1 -->
-              <article class="solution-card">
+              <article class="product-card">
                 <video src="assets/videos/survey_drone.mp4" autoplay muted loop playsinline
-                  class="solution-video"></video>
-                <div class="solution-overlay">
+                  class="product-video"></video>
+                <div class="product-overlay">
                   <h4>Sky-Eye V1</h4>
                   <p>Aerial lidar mapping drone.</p>
                 </div>
               </article>
               <!-- Item 2 -->
-              <article class="solution-card">
-                <video src="assets/videos/mapping.mp4" autoplay muted loop playsinline class="solution-video"></video>
-                <div class="solution-overlay">
-                  <h4>Ground-Scout</h4>
+              <article class="product-card">
+                <video src="assets/videos/mapping.mp4" autoplay muted loop playsinline class="product-video"></video>
+                <div class="product-overlay">
+                  <h4>Site-Mapper</h4>
                   <p>Terrestrial laser scanner rover.</p>
                 </div>
               </article>
               <!-- Item 3 -->
-              <article class="solution-card">
+              <article class="product-card">
                 <video src="assets/videos/rover_outdoor_survey.mp4" autoplay muted loop playsinline
-                  class="solution-video"></video>
-                <div class="solution-overlay">
-                  <h4>Site-Mapper</h4>
+                  class="product-video"></video>
+                <div class="product-overlay">
+                  <h4>Ground-Scout</h4>
                   <p>Real-time construction progress tracker.</p>
                 </div>
               </article>
@@ -315,7 +381,8 @@
             <p class="team-role">Co-Founder</p>
 
             <div class="team-socials">
-              <a href="#" class="team-social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/yash-gavit-2ab657229/" class="team-social-link" aria-label="LinkedIn"
+                target="_blank" rel="noopener">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -323,11 +390,20 @@
                   <circle cx="4" cy="4" r="2" />
                 </svg>
               </a>
-              <a href="mailto:yash@hexrobotics.com" class="team-social-link" aria-label="Email">
+              <a href="mailto:yashgavit54321@gmail.com" class="team-social-link" aria-label="Email">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
+                </svg>
+              </a>
+              <a href="https://sites.google.com/view/yashgavitxportfolio/home?authuser=0" class="team-social-link"
+                aria-label="Portfolio" target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="17" x2="12" y2="17"></line>
                 </svg>
               </a>
             </div>
@@ -341,9 +417,9 @@
             <div class="team-avatar">JT</div>
             <h3>Jiten Topiwala</h3>
             <p class="team-role">Co-Founder</p>
-
             <div class="team-socials">
-              <a href="#" class="team-social-link" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/in/jitentopiwala" class="team-social-link" aria-label="LinkedIn"
+                target="_blank" rel="noopener">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
@@ -351,17 +427,27 @@
                   <circle cx="4" cy="4" r="2" />
                 </svg>
               </a>
-              <a href="mailto:jiten@hexrobotics.com" class="team-social-link" aria-label="Email">
+              <a href="mailto:jitentopiwala7@gmail.com" class="team-social-link" aria-label="Email">
                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" />
                   <polyline points="22,6 12,13 2,6" />
                 </svg>
               </a>
+              <a href="https://jiten-topiwala.github.io/Portfolio/" class="team-social-link" aria-label="Portfolio"
+                target="_blank" rel="noopener">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                  <circle cx="12" cy="12" r="5"></circle>
+                  <line x1="12" y1="17" x2="12" y2="17"></line>
+                </svg>
+              </a>
             </div>
 
+
             <p class="team-bio">
-              Driving modular robotics solutions and advanced attachment systems for construction automation.
+              Driving modular robotics products and advanced attachment systems for construction automation.
             </p>
           </article>
         </div>
@@ -430,16 +516,17 @@
       </div>
       <nav class="footer-nav">
         <a href="#hero">Home</a>
-        <a href="#robots">Robots</a>
+        <a href="#products">products</a>
+        <a href="#roi">ROI Calculator</a>
+        <a href="#team">Team</a>
         <a href="#contact">Contact</a>
-        <!-- TEMPORARY: Demo link - keep until told to remove -->
-        <a href="try.html">Demo</a>
       </nav>
       <p class="footer-meta">
         © <span id="footer-year"></span> Hex Robotics. All rights reserved.
       </p>
     </div>
   </footer>
+
 
   <!-- ================= Floating Dock ================= -->
   <nav class="floating-dock">
