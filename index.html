@@ -131,7 +131,9 @@
                   class="solution-video"></video>
                 <div class="solution-overlay">
                   <h4>Demolition</h4>
-                  <p>Compact inspection unit for tight spaces.</p>
+                  <p>Strong demolition attachment.</p>
+                  <!-- <p>Compact inspection unit for tight spaces.</p> -->
+
                 </div>
               </article>
               <!-- Item 2 -->
@@ -147,13 +149,47 @@
                 <video src="assets/videos/Drilling.mp4" autoplay muted loop playsinline class="solution-video"></video>
                 <div class="solution-overlay">
                   <h4>Drilling</h4>
-                  <p>Precision brick-laying assistant.</p>
+                  <p>Precision drilling attachment.</p>
                 </div>
               </article>
             </div>
           </div>
 
-          <!-- Column 2: Survey -->
+
+
+          <!-- Column 2: Heavy -->
+          <div class="solution-category">
+            <h3 class="category-title">Heavy</h3>
+            <div class="solution-items">
+              <!-- Item 1 -->
+              <article class="solution-card">
+                <video src="assets/videos/Excavator.mp4" autoplay muted loop playsinline class="solution-video"></video>
+                <div class="solution-overlay">
+                  <h4>Excavator-Kit</h4>
+                  <p>Retrofit kit for 20T excavators.</p>
+                </div>
+              </article>
+              <!-- Item 2 -->
+              <article class="solution-card">
+                <video src="assets/videos/Excavator_rear.mp4" autoplay muted loop playsinline
+                  class="solution-video"></video>
+                <div class="solution-overlay">
+                  <h4>Haul-Master</h4>
+                  <p>Autonomous dump truck system.</p>
+                </div>
+              </article>
+              <!-- Item 3 -->
+              <!-- <article class="solution-card">
+                <video src="assets/videos/Excavator.mp4" autoplay muted loop playsinline class="solution-video"></video>
+                <div class="solution-overlay">
+                  <h4>Dozer-Link</h4>
+                  <p>Remote teleoperation for dozers.</p>
+                </div>
+              </article> -->
+            </div>
+          </div>
+
+          <!-- Column 3: Survey -->
           <div class="solution-category">
             <h3 class="category-title">Survey</h3>
             <div class="solution-items">
@@ -186,36 +222,6 @@
             </div>
           </div>
 
-          <!-- Column 3: Heavy -->
-          <div class="solution-category">
-            <h3 class="category-title">Heavy</h3>
-            <div class="solution-items">
-              <!-- Item 1 -->
-              <article class="solution-card">
-                <video src="assets/videos/Excavator.mp4" autoplay muted loop playsinline class="solution-video"></video>
-                <div class="solution-overlay">
-                  <h4>Excavator-Kit</h4>
-                  <p>Retrofit kit for 20T excavators.</p>
-                </div>
-              </article>
-              <!-- Item 2 -->
-              <article class="solution-card">
-                <video src="assets/videos/Excavator.mp4" autoplay muted loop playsinline class="solution-video"></video>
-                <div class="solution-overlay">
-                  <h4>Haul-Master</h4>
-                  <p>Autonomous dump truck system.</p>
-                </div>
-              </article>
-              <!-- Item 3 -->
-              <article class="solution-card">
-                <video src="assets/videos/Excavator.mp4" autoplay muted loop playsinline class="solution-video"></video>
-                <div class="solution-overlay">
-                  <h4>Dozer-Link</h4>
-                  <p>Remote teleoperation for dozers.</p>
-                </div>
-              </article>
-            </div>
-          </div>
 
         </div>
       </div>
@@ -386,20 +392,24 @@
           <input type="hidden" name="_subject" value="New Submission from Hex Robotics Website">
           <!-- Next: usually for redirect, but we'll handle via AJAX so this is fallback -->
           <input type="hidden" name="_next" value="https://hexrobotics.com/thanks.html">
+          <!-- Spam Protection (Honeypot): invisible to humans, filled by bots -->
+          <input type="text" name="_honey" style="display:none">
 
           <div class="form-row">
             <label for="name">Name</label>
-            <input id="name" name="name" type="text" required />
+            <input id="name" name="name" type="text" placeholder="Yash Gavit" required />
           </div>
 
           <div class="form-row">
             <label for="email">Email</label>
-            <input id="email" name="email" type="email" required />
+            <input id="email" name="email" type="email" placeholder="hexrobotics.ai@gmail.com" required />
           </div>
 
           <div class="form-row">
             <label for="message">Project / message</label>
-            <textarea id="message" name="message" rows="4" required></textarea>
+            <textarea id="message" name="message" rows="4"
+              placeholder="Hi, we are looking to automate our heavy machinery fleet and reduce labor costs..."
+              required></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary">
