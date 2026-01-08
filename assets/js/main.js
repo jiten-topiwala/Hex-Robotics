@@ -302,14 +302,30 @@ function initContactForm() {
       return;
     }
 
-    // For now, we just show a success message.
-    // Later, you can connect this to an API or email service.
-    statusEl.textContent =
-      "Thanks, " + name + "! We’ve received your message and will get back to you.";
-    statusEl.classList.remove("contact-status--error");
-    statusEl.classList.add("contact-status--success");
+    statusEl.textContent = "Sending...";
+    statusEl.classList.remove("contact-status--success", "contact-status--error");
 
-    form.reset();
+    fetch(form.action, {
+      method: "POST",
+      body: formData,
+      headers: {
+        'Accept': 'application/json'
+      }
+    })
+      .then(response => {
+        if (response.ok) {
+          statusEl.textContent = "Thanks, " + name + "! We’ve received your message.";
+          statusEl.classList.add("contact-status--success");
+          form.reset();
+        } else {
+          statusEl.textContent = "Oops! There was a problem submitting your form.";
+          statusEl.classList.add("contact-status--error");
+        }
+      })
+      .catch(error => {
+        statusEl.textContent = "Oops! There was a network error.";
+        statusEl.classList.add("contact-status--error");
+      });
   });
 }
 

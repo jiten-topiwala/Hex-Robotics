@@ -6,7 +6,7 @@ const productData = {
         category: "Heavy Duty",
         desc: "AI-driven excavation with precise depth control.",
         specs: ["Payload: 20-60T", "Autonomy: Level 4", "Power: Hybrid Diesel-Electric"],
-        video: "assets/videos/try.mp4"
+        video: "assets/videos/Excavator.mp4"
     },
     "crane": {
         title: "Smart Tower Crane",
@@ -28,11 +28,11 @@ const productData = {
         category: "Light Weight",
         desc: "The core mobility unit. Compatible with all Hex tool modules.",
         specs: ["Battery: 48h Swap", "Drive: Omni-wheel", "IP Rating: IP67"],
-        video: "assets/videos/try.mp4"
+        video: "assets/videos/All_in_one.mp4"
     },
-    "drilling": { title: "Precision Drill Module", category: "Light Weight", desc: "For core sampling.", specs: ["Torque: 500Nm", "Depth: 2m"], video: "assets/videos/try.mp4" },
-    "painting": { title: "Spray Paint Module", category: "Light Weight", desc: "Uniform coverage.", specs: ["Flow: 2L/min", "Accuracy: 99%"], video: "assets/videos/try.mp4" },
-    "demolition": { title: "Jackhammer Module", category: "Light Weight", desc: "Compact demolition.", specs: ["Force: 1200J", "Rate: 60Hz"], video: "assets/videos/try.mp4" },
+    "drilling": { title: "Precision Drill Module", category: "Light Weight", desc: "For core sampling.", specs: ["Torque: 500Nm", "Depth: 2m"], video: "assets/videos/Drilling.mp4" },
+    "painting": { title: "Spray Paint Module", category: "Light Weight", desc: "Uniform coverage.", specs: ["Flow: 2L/min", "Accuracy: 99%"], video: "assets/videos/Painting.mp4" },
+    "demolition": { title: "Jackhammer Module", category: "Light Weight", desc: "Compact demolition.", specs: ["Force: 1200J", "Rate: 60Hz"], video: "assets/videos/Demolition.mp4" },
     "welding": { title: "Arc Weld Module", category: "Light Weight", desc: "Robotic welding.", specs: ["Amps: 300A", "Axis: 6-DOF"], video: "assets/videos/try.mp4" },
     // SURVEY
     "drone": {
@@ -40,7 +40,7 @@ const productData = {
         category: "Survey & Mapping",
         desc: "Aerial photogrammetry and LiDAR scanning.",
         specs: ["Flight: 45min", "Sensor: LiDAR + RGB", "Range: 5km"],
-        video: "assets/videos/try.mp4"
+        video: "assets/videos/survey_drone.mp4"
     },
     "rover": {
         title: "Terrain Rover",
@@ -54,7 +54,7 @@ const productData = {
         category: "Survey & Mapping",
         desc: "Centralized AI processing.",
         specs: ["Ops: 100 TFLOPS", "Latency: <10ms", "Cloud: Hybrid"],
-        video: "assets/videos/try.mp4"
+        video: "assets/videos/All_in_one.mp4"
     }
 };
 
